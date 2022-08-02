@@ -1,7 +1,7 @@
 #include "lists.h"
 #include<string>
 /*
- * is_palindrome - checks a list if its a palindrome
+ * is_palindrome - main function.
  * @head: first node
  * Return: 0 if not a palindrome, 1 if it's a palindrome
  */
@@ -20,8 +20,8 @@ int is_palindrome(listint_t **head)
 int is_palind(listint_t **head, listint_t *end)
 {
 	if (end == NULL)
-		return (1)
-	if (is_palind(head, end->next) && (*head)->n == end ->n)
+		return (1);
+	if (is_palind(head, end->next) && (*head)->n == end->n)
 	{
 		*head = (*head)->next;
 		return (1);
