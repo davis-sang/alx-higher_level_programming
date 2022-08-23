@@ -1,38 +1,64 @@
 #include "lists.h"
+
 /**
- * recurPalindrome - checks if singly linked list is palindrome
- * @left: pointer to head of singly linked list
- * @right: head of singly linked list
+ * reverse_list - reverses a linked list
+ * @head: head of list
  *
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * Return: head of reversed list
  */
 
-int recurPalindrome(listint_t **left, listint_t *right)
+listint_t *reverse_list(listint_t *head)
 {
-	int ret;
+	listint_t *prev = NULL;
+	listint_t *current = head;
+	listint_t *next;
 
-	if (right == NULL)
-		return (1);
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	head = prev;
 
-	ret = recurPalindrome(left, right->next);
-	if (ret == 0)
-		return (0);
-
-	ret = (right->n == (*left)->n);
-
-	*left = (*left)->next;
-
-	return (ret);
+	return (head);
 }
+
 /**
- * is_palindrome - checks if singly linked list is palindrome
- * @head: pointer to head of singly linked list
+ * is_palindrome - determines if a list is a palindrome
+ * @head: head of list
  *
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * Return: 0 if not a palindrome, 1 if it is a palindrome
  */
+
 int is_palindrome(listint_t **head)
 {
-	if (!head)
-		return (0);
-	return (recurPalindrome(head, *head));
+	unsigned int length = 0, half = 0, i = 0;
+	listint_t *cursor, *second;
+
+	cursor = *head;
+	while (cursor != NULL)
+	{
+		cursor = cursor->next;
+		length++;
+	}
+
+	half = length / 2;
+	cursor = *head;
+	for (i = 0; i < half; i++)
+	{
+		cursor = cursor->next;
+	}
+	second = reverse_list(cursor);
+	cursor = *head;
+
+	while (second != NULL)
+	{
+		if (cursor->n != second->n)
+			return (0);
+		cursor = cursor->next;
+		second = second->next;
+	}
+	return (1);
 }
