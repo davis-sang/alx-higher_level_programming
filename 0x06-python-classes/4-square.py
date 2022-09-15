@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 class Square:
     """Represents a square
 
