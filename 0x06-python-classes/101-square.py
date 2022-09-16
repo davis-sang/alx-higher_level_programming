@@ -120,5 +120,6 @@ class Square:
         """
         if self.size == 0:
             return ""
-        string = "\n" * self.position[1] + (" " * self.position[0] + "#" * self.size + "\n") * self.size
+        string = "\n" * self.position[1] + (" " * self.position[0] +
+                                            "#" * self.size + "\n") * self.size
         return string[:-1]
