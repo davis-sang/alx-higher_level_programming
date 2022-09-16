@@ -52,7 +52,7 @@ class Square:
         Return:
             None
         """
-        if type(value) is not int:
+        if type(value) is not int and type(value) is not float:
             raise TypeError("size must be a number")
         else:
             if value < 0:
