@@ -52,15 +52,14 @@ Checking for passing non-list to m_b:
 	 TypeError: m_b must be a list
 
 Checking for passing non-list list to m_a:
-	 >>> matrix_divided([[0, 1], [2, "one"]],[[1, 2], [3, 4]])
+	 >>> matrix_mul([[0, 1], [2, "one"]],[[1, 2], [3, 4]])
 	 Traceback (most recent call last):
 	 TypeError: m_a must be a list of lists
 
 Checking for passing non-list list to m_b:
-	 >>> matrix_divided([[0, 1], [2, 1]],[[1, 2], [3, "two"]])
+	 >>> matrix_mul([[0, 1], [2, 1]],[[1, 2], [3, "two"]])
 	 Traceback (most recent call last):
 	 TypeError: m_b must be a list of lists
-
 
 Checking for passing empty m_a:
 	 >>> matrix_mul([], [[1, 2], [3, 4]])
